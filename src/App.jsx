@@ -5,19 +5,19 @@ export const App = () => {
   const [count, setCount] = useState(0);
 
   const addOne = () => {
-    setCount(prev => prev + 1);
+    setCount(current => current + 1);
   };
 
   const add100 = () => {
-    setCount(prev => prev + 100);
+    setCount(current => current + 100);
   };
 
   const increase = () => {
-    if (count % 5 === 0) {
-      add100();
-    }
+    setCount(prev => {
+      const next = prev + 1;
 
-    addOne();
+      return (next - 1) % 5 === 0 ? next + 100 : next;
+    });
   };
 
   return (
@@ -38,3 +38,22 @@ export const App = () => {
     </div>
   );
 };
+
+/*
+  const increase = () => {
+    setCount(prev => {
+      const next = prev + 1;
+
+      return next % 5 === 0 ? next + 100 : next;
+    });
+  };
+*/
+/*
+  const increase = () => {
+    if (count % 5 === 0) {
+      add100();
+    }
+
+    addOne();
+  };
+*/
