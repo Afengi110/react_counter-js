@@ -13,11 +13,11 @@ export const App = () => {
   };
 
   const increase = () => {
-    setCount(prev => {
-      const next = prev + 1;
+    if (count % 5 === 0) {
+      add100();
+    }
 
-      return (next - 1) % 5 === 0 ? next + 100 : next;
-    });
+    addOne();
   };
 
   return (
@@ -38,22 +38,3 @@ export const App = () => {
     </div>
   );
 };
-
-/*
-  const increase = () => {
-    setCount(prev => {
-      const next = prev + 1;
-
-      return next % 5 === 0 ? next + 100 : next;
-    });
-  };
-*/
-/*
-  const increase = () => {
-    if (count % 5 === 0) {
-      add100();
-    }
-
-    addOne();
-  };
-*/
